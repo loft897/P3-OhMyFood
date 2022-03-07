@@ -1,0 +1,54 @@
+/* Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* General */
+body {
+  min-width: 300px;
+  font-family: "Raleway", sans-serif;
+  overflow-x: hidden;
+}
+@media screen and (max-width: 320px) {
+  body {
+    overflow-x: visible;
+  }
+}
+
+span {
+  font-weight: bold;
+}
+
+/* header */
+.btn-default, .btn-warning, .btn-danger, .btn-primary {
+  border: 0;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  background: indigo;
+  color: white;
+  font-size: 700;
+  transition: all 0.5s;
+}
+.btn-default:hover, .btn-warning:hover, .btn-danger:hover, .btn-primary:hover {
+  transform: scale(1.1);
+}
+
+.btn-primary {
+  background: green;
+}
+
+.btn-danger {
+  background: red;
+}
+
+.btn-warning {
+  background: orange;
+}
+
+.btn-default {
+  background: cyan;
+}
+
+/*# sourceMappingURL=style.css.map */

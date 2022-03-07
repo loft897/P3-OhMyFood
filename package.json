@@ -1,0 +1,24 @@
+{
+  "name": "p3-ohmyfood",
+  "version": "1.0.0",
+  "description": "*** ### Compétences évaluées : * Mettre en œuvre des effets CSS graphiques avancés * Assurer la cohérence graphique d'un site web * Mettre en place une structure de navigation pour un site web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass -w scss:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loft897/P3-OhMyFood.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loft897/P3-OhMyFood/issues"
+  },
+  "homepage": "https://github.com/loft897/P3-OhMyFood#readme",
+  "dependencies": {
+    "sass": "^1.49.9"
+  }
+}
