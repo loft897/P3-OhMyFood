@@ -1,27 +1,72 @@
-/* Reset */
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-/* General */
-body {
-  min-width: 300px;
-  font-family: "Raleway", sans-serif;
-  overflow-x: hidden;
-}
-@media screen and (max-width: 320px) {
-  body {
-    overflow-x: visible;
+@keyframes shake {
+  0% {
+    -webkit-transform: translate(1);
+    transform: scale(1);
+    text-shadow: 0 0 7px #fff;
+  }
+  50% {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+    text-shadow: 0 0 7px #353535;
   }
 }
-
-span {
-  font-weight: bold;
+@keyframes jump {
+  33% {
+    text-shadow: 0 60px #9356DC, 0 150px #9356DC;
+  }
+  50% {
+    transform: translate(0, 0) rotate(-4deg);
+    text-shadow: 0 0px #FF79DA, 0 0px #FF79DA;
+  }
+  66.67% {
+    text-shadow: 0 -60px #99E2D0, 0 -150px #99E2D0;
+  }
 }
-
-/* header */
+@keyframes flash {
+  0% {
+    -webkit-transform: translate(1);
+    transform: scale(1.8);
+    text-shadow: 0 0 7px #fff;
+  }
+  50% {
+    -webkit-transform: translate(1);
+    transform: translate(1.8);
+    text-shadow: 0 0 7px #353535;
+  }
+}
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes loader {
+  0% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0.5;
+  }
+  66% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fill {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .btn-default, .btn-warning, .btn-danger, .btn-primary {
   border: 0;
   border-radius: 5px;
@@ -49,6 +94,288 @@ span {
 
 .btn-default {
   background: cyan;
+}
+
+/* Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* General */
+body {
+  min-width: 300px;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Loader */
+.loader {
+  background: linear-gradient(to right, #9356dc, #ff79da);
+  width: 100%;
+  height: 100%;
+  line-height: 100%;
+  font-family: "Shrikhand", cursive;
+  vertical-align: middle;
+  text-align: center;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  animation: loader 1s ease-in-out 2s forwards;
+}
+.loader .loader-logo {
+  vertical-align: middle;
+  position: fixed;
+  top: 40%;
+  text-align: center;
+  width: 100vw;
+}
+.loader .loader-logo span {
+  width: 5px;
+  height: 20px;
+  padding-right: 1em;
+  -webkit-text-stroke-width: 1.25px;
+  -webkit-text-stroke-color: #000;
+  font-size: 50px;
+  text-shadow: 0 0px #99E2D0, 0 0px #99E2D0;
+  transform: translate(0, 100%) rotate(4deg);
+  display: inline-block;
+  font-family: "Shrikhand", cursive;
+  color: #fff;
+  animation: jump 2s ease-in-out infinite;
+}
+.loader .loader-i {
+  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: rotate 1s linear infinite;
+}
+
+/* header */
+header {
+  font-family: "Shrikhand", cursive;
+  background: #fff;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 5px 5px 0 #ddd;
+}
+
+/* Main */
+main {
+  position: relative;
+  top: 10px;
+}
+main .localisation {
+  background: #fff;
+  text-align: center;
+  padding: 20px;
+  color: #353535;
+  padding: 10px;
+}
+main .localisation i {
+  margin-right: 10px;
+}
+main .discover {
+  background: #f0ecec;
+  height: 250px;
+}
+main .discover h2 {
+  text-align: center;
+  padding-top: 40px;
+  width: 280px;
+  margin: 0 auto;
+}
+main .discover p {
+  text-align: center;
+  padding: 15px 0;
+}
+main .discover .explor {
+  text-align: center;
+  margin: 0 auto;
+  padding: 15px 0;
+  width: 200px;
+  height: 50px;
+  background: linear-gradient(to right, #9356dc, #ff79da);
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 1px 1px 10px 0 #353535;
+}
+main .discover .explor:hover {
+  opacity: 0.8;
+}
+main .operation {
+  margin-bottom: 20px;
+}
+main .operation h2 {
+  text-align: center;
+  padding: 20px 0;
+}
+main .operation .steps {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+main .operation .steps div {
+  width: 250px;
+  height: 50px;
+  display: flex;
+  flex-flow: row nowrap;
+  background: #f0ecec;
+  padding: 15px 0;
+  border-radius: 30px;
+  box-shadow: 1px 1px 10px 0 #353535;
+  cursor: pointer;
+}
+main .operation .steps div:hover {
+  background: #fff;
+  transition: all 0.5s;
+  transform: scale(1.02);
+}
+main .operation .steps div:hover i {
+  color: #9356DC;
+}
+main .operation .steps div .step-number {
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  background: #9356DC;
+  color: white;
+  position: relative;
+  top: -5px;
+  left: -7px;
+  padding-top: 5px;
+}
+main .operation .steps div i {
+  padding-right: 20px;
+}
+main .restaurants {
+  background: #f0ecec;
+  height: 800px;
+}
+main .restaurants h2 {
+  text-align: center;
+  padding: 20px 0;
+}
+main .restaurants .all-restaurants {
+  height: 620px;
+  width: 630px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 25px;
+}
+main .restaurants .all-restaurants .restaurant {
+  background: #fff;
+  border-radius: 20px;
+  height: 300px;
+  width: 300px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: "img" "img" "text";
+}
+main .restaurants .all-restaurants .restaurant:hover {
+  transition: all 1s;
+  transform: scale(1.03);
+}
+main .restaurants .all-restaurants .restaurant:nth-child(1)::after, main .restaurants .all-restaurants .restaurant:nth-child(2)::after {
+  content: "Nouveau";
+  width: 70px;
+  height: 20px;
+  background: #99E2D0;
+  border-radius: 10px;
+  padding: 0.5rem 0.5rem;
+  position: relative;
+  opacity: 0.7;
+  top: -18rem;
+  left: 12.5rem;
+  animation: shake 1s linear infinite;
+}
+main .restaurants .all-restaurants .restaurant .img-restau {
+  grid-area: img;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+main .restaurants .all-restaurants .text {
+  height: 100px;
+  grid-area: text;
+  display: flex;
+}
+main .restaurants .all-restaurants .text .presentation {
+  display: block;
+  width: 250px;
+  padding: 25px 70px 20px 20px;
+}
+main .restaurants .all-restaurants .text .presentation h3 {
+  text-decoration: none;
+}
+main .restaurants .all-restaurants .text .presentation p {
+  text-decoration: none;
+}
+main .restaurants .all-restaurants .text .heart {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  top: 30%;
+}
+main .restaurants .all-restaurants .text .heart:hover .fas {
+  display: flex;
+}
+main .restaurants .all-restaurants .text .heart:hover .far {
+  display: none;
+}
+main .restaurants .all-restaurants .text .heart i {
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+main .restaurants .all-restaurants .text .heart .fas {
+  color: transparent;
+  background-image: linear-gradient(to right, #9356dc, #ff79da);
+  background-clip: text;
+  -webkit-background-clip: text;
+  position: absolute;
+  left: 0.4px;
+  display: none;
+}
+
+/* Footer */
+footer {
+  height: 120px;
+  margin-top: 10px;
+  background: #353535;
+  color: #fff;
+  padding: 0 30px;
+}
+footer h3 {
+  font-family: "Shrikhand", cursive;
+  padding: 15px 0;
+}
+footer ul {
+  width: 700px;
+  list-style: none;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+footer ul li a,
+footer ul li i {
+  padding-right: 5px;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

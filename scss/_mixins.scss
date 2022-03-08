@@ -1,13 +1,27 @@
-@mixin param-button-search {
-  color: white;
-  background: $blue;
-  border-start-start-radius: 0;
-  border-bottom-left-radius: 0;
-  padding: 17px;
-  cursor: pointer;
-  transition: all 0.5s;
+@mixin param-head {
+  background: #fff;
+  text-align: center;
+  padding: 20px;
 }
 
+@mixin param-h2{
+  text-align: center;
+  padding: 20px 0;
+}
 
-
+@mixin param-new{
+  &::after{
+    content: "Nouveau";
+    width: 70px;
+    height: 20px;
+    background: $tertiary;
+    border-radius: 10px;
+    padding: 0.5rem 0.5rem;
+    position: relative;
+    opacity: 0.7;
+    top: -18rem;
+    left: 12.5rem;
+    animation: shake 1s linear infinite;
+  }
+}
                        
