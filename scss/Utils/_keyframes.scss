@@ -49,6 +49,15 @@
   }
 }
 
+@keyframes rotateCheck {
+  from {
+    -webkit-transform: rotate(180deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
 @keyframes loader {
   0% {
     opacity: 1;
@@ -64,14 +73,38 @@
   }
 }
 
-@keyframes fill {
+@keyframes load {
   0% {
     opacity: 0;
   }
-  50% {
-    opacity: 0.5;
+  33% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0.1;
   }
   100% {
     opacity: 1;
   }
 }
+
+
+@keyframes scaleUpRight {
+  0% {
+    -webkit-transform: scaleX(0.1);
+            transform: scaleX(0.1);
+    -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+    -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+  }
+}
+
+
+
+  
+
