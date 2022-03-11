@@ -1,3 +1,0 @@
-@function centerAbsolute($size){
-    @return calc(50% - #{$size / 2});
-}

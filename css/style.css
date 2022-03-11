@@ -4,11 +4,13 @@
   box-sizing: border-box;
 }
 
-/* General */
 body {
-  min-width: 300px;
   font-family: "Roboto", sans-serif;
   height: 100vh;
+  width: 100%;
+  min-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 a {
@@ -110,35 +112,6 @@ a {
     transform-origin: 100% 100%;
   }
 }
-.btn-default, .btn-warning, .btn-danger, .btn-primary {
-  border: 0;
-  border-radius: 5px;
-  padding: 1rem 2rem;
-  background: indigo;
-  color: white;
-  font-size: 700;
-  transition: all 0.5s;
-}
-.btn-default:hover, .btn-warning:hover, .btn-danger:hover, .btn-primary:hover {
-  transform: scale(1.1);
-}
-
-.btn-primary {
-  background: green;
-}
-
-.btn-danger {
-  background: red;
-}
-
-.btn-warning {
-  background: orange;
-}
-
-.btn-default {
-  background: cyan;
-}
-
 .loader {
   background: linear-gradient(to right, #9356dc, #ff79da);
   width: 100%;
@@ -175,11 +148,16 @@ a {
   color: #fff;
   animation: jump 2s ease-in-out infinite;
 }
+@media screen and (max-width: 900px) {
+  .loader .loader-logo span {
+    font-size: 30px;
+  }
+}
 .loader .loader-i {
   vertical-align: middle;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 45%;
   animation: rotate 1s linear infinite;
 }
 .loader .loader-i i {
@@ -200,10 +178,14 @@ header i {
   left: -50%;
   top: 40px;
 }
-
 main {
   position: relative;
   top: 10px;
+}
+@media screen and (max-width: 900px) {
+  main {
+    width: 100%;
+  }
 }
 
 footer {
@@ -212,17 +194,50 @@ footer {
   position: relative;
   padding: 0 30px;
 }
+@media screen and (max-width: 1350px) {
+  footer {
+    top: 650px;
+  }
+}
+@media screen and (max-width: 900px) {
+  footer {
+    height: 230px;
+  }
+  footer .bloc {
+    width: auto;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}
 footer h3 {
   color: #fff;
   font-family: "Shrikhand", cursive;
   padding: 30px 0;
 }
+@media screen and (max-width: 900px) {
+  footer h3 {
+    display: flex;
+    justify-content: center;
+  }
+}
 footer ul {
-  width: 700px;
+  max-width: 700px;
   list-style: none;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+}
+@media screen and (max-width: 900px) {
+  footer ul {
+    display: block;
+    text-align: center;
+    width: auto;
+  }
+}
+@media screen and (max-width: 900px) {
+  footer ul li {
+    padding-bottom: 10px;
+  }
 }
 footer ul li:hover {
   text-decoration: underline;
@@ -235,6 +250,11 @@ footer ul li i {
 
 .footer {
   top: 240px;
+}
+@media screen and (max-width: 900px) {
+  .footer {
+    top: 1050px;
+  }
 }
 
 .main-localisation {
@@ -285,10 +305,22 @@ footer ul li i {
   text-align: center;
   padding: 20px 0;
 }
+@media screen and (max-width: 900px) {
+  .main-operation h2 {
+    text-align: start;
+    padding-left: 20px;
+  }
+}
 .main-operation .steps {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
+}
+@media screen and (max-width: 900px) {
+  .main-operation .steps {
+    flex-direction: column;
+    padding: 0 20px;
+  }
 }
 .main-operation .steps div {
   width: 250px;
@@ -300,6 +332,12 @@ footer ul li i {
   border-radius: 30px;
   box-shadow: 1px 1px 10px 0 #353535;
   cursor: pointer;
+}
+@media screen and (max-width: 900px) {
+  .main-operation .steps div {
+    margin-bottom: 20px;
+    width: 100%;
+  }
 }
 .main-operation .steps div:hover {
   background: #fff;
@@ -329,28 +367,40 @@ footer ul li i {
   background: #f0ecec;
   height: 800px;
 }
+@media screen and (max-width: 900px) {
+  .main-restaurants {
+    height: 1500px;
+  }
+}
 .main-restaurants h2 {
   text-align: center;
   padding: 20px 0;
 }
 .main-restaurants .all-restaurants {
   height: 620px;
-  width: 630px;
+  max-width: 630px;
   margin: 20px auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 25px;
 }
+@media screen and (max-width: 900px) {
+  .main-restaurants .all-restaurants {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}
 .main-restaurants .all-restaurants .restaurant {
   background: #fff;
   border-radius: 20px;
   height: 300px;
-  width: 300px;
+  width: auto;
   display: grid;
+  position: relative;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-areas: "img" "img" "text";
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas: "img" "img" "img" "text";
 }
 .main-restaurants .all-restaurants .restaurant:hover {
   transition: all 1s;
@@ -358,34 +408,50 @@ footer ul li i {
 }
 .main-restaurants .all-restaurants .restaurant:nth-child(1)::after, .main-restaurants .all-restaurants .restaurant:nth-child(2)::after {
   content: "Nouveau";
-  width: 70px;
-  height: 20px;
+  max-width: 70px;
+  width: auto;
+  max-height: 20px;
   background: #99E2D0;
   border-radius: 10px;
   padding: 0.5rem 0.5rem;
-  position: relative;
+  position: absolute;
   opacity: 0.7;
-  top: -18rem;
-  left: 12.5rem;
+  top: 1rem;
+  right: 1rem;
   animation: shake 1s linear infinite;
 }
-.main-restaurants .all-restaurants .restaurant .img-restau {
+@media screen and (max-width: 900px) {
+  .main-restaurants .all-restaurants .restaurant {
+    margin: 0 auto;
+  }
+}
+.main-restaurants .all-restaurants .restaurant .case-img {
   grid-area: img;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-  width: 300px;
-  height: 200px;
+  width: auto;
+  height: 100%;
+  min-width: 70px;
+}
+@media screen and (max-width: 900px) {
+  .main-restaurants .all-restaurants .restaurant .case-img {
+    width: 250px;
+  }
+}
+.main-restaurants .all-restaurants .restaurant img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 0 0;
   object-fit: cover;
 }
 .main-restaurants .all-restaurants .text {
   height: 100px;
   grid-area: text;
   display: flex;
+  position: relative;
 }
 .main-restaurants .all-restaurants .text .presentation {
   display: block;
-  width: 250px;
-  padding: 25px 70px 20px 20px;
+  width: auto;
+  padding: 20px;
 }
 .main-restaurants .all-restaurants .text .presentation h3 {
   text-decoration: none;
@@ -394,10 +460,10 @@ footer ul li i {
   text-decoration: none;
 }
 .main-restaurants .all-restaurants .text .heart {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  top: 30%;
+  width: auto;
+  position: absolute;
+  right: 1rem;
+  top: 1.5rem;
 }
 .main-restaurants .all-restaurants .text .heart:hover .fas {
   display: flex;
@@ -406,7 +472,7 @@ footer ul li i {
   display: none;
 }
 .main-restaurants .all-restaurants .text .heart i {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 .main-restaurants .all-restaurants .text .heart .fas {
@@ -415,19 +481,23 @@ footer ul li i {
   background-clip: text;
   -webkit-background-clip: text;
   position: absolute;
-  left: 0.4px;
+  right: 0.4px;
   display: none;
 }
 
 main {
   height: 1000px;
 }
-main .menu-img {
+main .bloc-img {
   width: 100%;
   height: 400px;
-  object-fit: cover;
   position: absolute;
   top: -10px;
+}
+main .bloc-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 main .menus {
   width: 95%;
@@ -441,15 +511,20 @@ main .menus {
   top: 340px;
   display: block;
 }
+@media screen and (max-width: 1350px) {
+  main .menus {
+    height: 1380px;
+  }
+}
 main .menus h2 {
   font-family: "Shrikhand", cursive;
   margin-bottom: 30px;
 }
 main .menus .heart {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  top: 30%;
+  width: auto;
+  position: absolute;
+  right: 1rem;
+  top: 1.5rem;
   position: absolute;
   right: 15px;
   top: 25px;
@@ -461,7 +536,7 @@ main .menus .heart:hover .far {
   display: none;
 }
 main .menus .heart i {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 main .menus .heart .fas {
@@ -470,13 +545,19 @@ main .menus .heart .fas {
   background-clip: text;
   -webkit-background-clip: text;
   position: absolute;
-  left: 0.4px;
+  right: 0.4px;
   display: none;
 }
 main .menus .menu {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
+}
+@media screen and (max-width: 1350px) {
+  main .menus .menu {
+    display: flex;
+    flex-flow: column nowrap;
+  }
 }
 main .menus .menu div {
   position: relative;
@@ -492,6 +573,11 @@ main .menus .menu div h3::after {
   position: absolute;
   top: 25px;
   left: 0;
+}
+@media screen and (max-width: 1350px) {
+  main .menus .menu div h3 {
+    margin-bottom: 20px;
+  }
 }
 main .menus .menu div .entree,
 main .menus .menu div .plat,
@@ -571,6 +657,14 @@ main .menus .menu div .entree div:hover .check,
 main .menus .menu div .plat div:hover .check,
 main .menus .menu div .dessert div:hover .check {
   display: flex;
+}
+@media screen and (max-width: 1350px) {
+  main .menus .menu div .entree div,
+main .menus .menu div .plat div,
+main .menus .menu div .dessert div {
+    max-width: none;
+    width: auto;
+  }
 }
 main .menus .menu div .entree div .name,
 main .menus .menu div .plat div .name,
